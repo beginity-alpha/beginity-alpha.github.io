@@ -31,6 +31,7 @@ export function initUI(document = window.document) {
 			seconds--;
 			if(seconds<=0) {
 				clearInterval(retryInterval)
+				getOtpBtn.innerHTML = 'Get OTP'	
 				enableElement(getOtpBtn)
 			}
 		},1000)
