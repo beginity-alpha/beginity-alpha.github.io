@@ -1,4 +1,5 @@
 "use strict";
+import { redirectTo } from '../navigation/main.js';
 import { getEvents, createEvent, fetchUserDetail, makeSecureRequest, hostSocket } from './../app-SDK.js';
 import { loadingCharGenerator,defaultErrorCallback, defaultSuccessCallback, ids } from './../utils.js'
 
@@ -18,7 +19,10 @@ export function initUI(document = window.document) {
 			$id.createEventsDialog.style.setProperty('display', previousVal1);
 			}
 	})
-	$id.createEvent.onsubmit = createEvent.handler(defaultSuccessCallback, defaultErrorCallback);
+	$id.createEvent.onsubmit = createEvent.handler((data)=>{
+			defaultSuccessCallback(data)
+			redirectTo('/events')
+		}, defaultErrorCallback);
 	loadEvents()
 }
 

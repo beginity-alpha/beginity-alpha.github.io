@@ -389,14 +389,3 @@ export async function getAllAttendances({event_id, classroom_id, user_id}, succe
 	}
 }
 getAllAttendances({}, (data)=>console.log(data.message), (data)=>console.error(data.message));
-// 	"/api/auth/register",
-// 	"/api/auth/login",
-// 	"api/users",
-// 	"/api/users/id",
-// 	"/api/users/name",
-// 	"/api/users/email",
-// 	"/api/events/",
-// 	"/api/events/upcoming",
-// 	"/api/events/ended",
-// 	"/api/events/ongoing",
-// ];
