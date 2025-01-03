@@ -1,0 +1,55 @@
+/* `
+<div class="event-card">
+    <span class="title">${event.title}</span><br>
+    <span class="duration">from:${event.start_time}</span><br>
+    <span class="duration">to:${event.end_time}</span><br>
+</div>
+` */
+#panel-events {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+#panel-events .event-card>* {
+    margin: 4px 2px;
+}
+
+#panel-events .event-card {
+    min-width: 80%;
+    padding: 8px;
+    margin: 6px;
+    max-width: 80vw;
+    border-radius: 10px;
+    display: block;
+    border: 1px solid rgb(91, 88, 88);
+    box-shadow: 1px 1px 2.5px white;
+}
+
+#panel-events .title {
+    font-size: 2rem;
+}
+
+#panel-events .duration {
+    font-size: 1rem;
+    color: var(--theme-font-color);
+}
+
+#panel-events details summary {
+    font-size: 0.51rem;
+}
+
+#panel-events details summary {
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+}
+
+#createEventsDialog {
+    margin: 16px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}

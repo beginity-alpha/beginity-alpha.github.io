@@ -1,0 +1,99 @@
+/* details-dialog.css  */
+
+:disabled+br {
+    display: none;
+}
+
+[hidden]+br {
+    display: none;
+}
+
+details{
+    margin: 8px 2px;
+}
+
+details summary {
+    cursor: pointer;
+    outline: none !important;
+    display: inline-block;
+    padding: 8px 12px;
+    padding-top: 10px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--theme-button-color);
+    color: white;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 1.2em;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+}
+
+details[open]>summary::before {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    cursor: default;
+    content: " ";
+    z-index: 99;
+    background: rgba(27, 31, 35, 0.5);
+}
+
+details>fieldset {
+    left: 50%;
+    margin: 10vh auto;
+    max-height: 80vh;
+    max-width: 82vw;
+    position: fixed;
+    top: 0;
+    transform: translateX(-50%);
+    width: 448px;
+    z-index: 999;
+    animation-name: fade-in;
+    animation-duration: 300ms;
+    animation-timing-function: ease-in-out;
+    background-color: var(--theme-bg-primary);
+    color: var(--theme-font-color);
+    border: 1px solid #d1d5da;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: lighter;
+    font-family: Arial;
+    padding: 1em;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+    border-top: 4px solid #f09825;
+    overflow-y: scroll;
+}
+details>fieldset {
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+}
+
+details>fieldset::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, and Opera */
+}
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+input {
+    border-radius: 2px;
+    border-width: 0px;
+    border-bottom: 0.5px #d1d5da solid;
+}

@@ -1,0 +1,45 @@
+:root {
+    --theme-mode:'dark';
+    /* COLOR_PALLET */
+    --black: rgb(13, 17, 26);
+    --black-secondary: #313638;
+    --white: #e3e5e7;
+    --white-secondary:#b9c0c1;
+    --grey-light: #ccc;
+    --grey-dark:#333;
+    --blue-light:#75a7e8;
+    --blue-dark:#1f77e9;
+    --alert-color:lightcoral;
+    --high-alert-color: #ff0000;
+    /* DEFAULTS */
+    --theme-alert-color:var(--alert-color);
+    --theme-border-color: var(--white-secondary);
+    --theme-bg-secondary: var(--black-secondary);
+    --theme-font-color: var(--white);
+    --theme-button-color: var(--blue);
+    --theme-bg-primary: var(--black);
+}
+
+/* For dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --theme-mode:dark;
+        --theme-bg-primary: var(--black); /* Dark background */
+        --theme-bg-secondary: var(--black-secondary); /* Lighter dark background */
+        --theme-font-color: var(--white); /* Light font for dark mode */
+        --theme-border-color: var(--grey-light); /* Darker border color */
+        --theme-button-color: var(--blue-dark); /* Dark Blue buttons for dark theme */
+    }
+}
+
+/* For light mode */
+@media (prefers-color-scheme: light) {
+    :root {
+        --theme-mode:light;
+        --theme-bg-primary: var(--white); /* White background */
+        --theme-bg-secondary: var(--white-secondary); /* Slightly off-white background */
+        --theme-font-color: var(--black); /* Dark text for light mode */
+        --theme-border-color: var(--grey-dark); /* Light border color */
+        --theme-button-color: var(--blue-light); /* Light Blue buttons for light theme */
+    }
+}

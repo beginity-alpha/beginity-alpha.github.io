@@ -1,0 +1,93 @@
+/* `
+<div class="event-card">
+    <span class="title">${event.title}</span><br>
+    <span class="duration">from:${event.start_time}</span><br>
+    <span class="duration">to:${event.end_time}</span><br>
+</div>
+` */
+#panel-classrooms {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+#panel-classrooms .classroom-card details summary {
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+}
+
+#panel-classrooms details summary {
+    font-size: 0.51rem;
+}
+
+#panel-classrooms details fieldset {
+    min-height: 75vh;
+    min-width: 82vw;
+}
+
+#panel-classrooms .classroom-card {
+    padding: 8px;
+    margin: 6px;
+    min-width: 80%;
+    max-width: 80vw;
+    border-radius: 10px;
+    display: block;
+    border: 1px solid rgb(91, 88, 88);
+    box-shadow: 1px 1px 2.5px white;
+}
+
+#panel-classrooms .classroom-card .messages-container{
+    display: flex;
+    flex-direction: column;
+    min-height: 90vh;
+    gap:12px;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+}
+#panel-classrooms .classroom-card .message-container{
+    border-radius: 4px;
+    width: fit-content;
+    min-width: 30%;
+    max-width: 80%;
+    border: 1px solid var(--theme-border-color);
+}
+#panel-classrooms .classroom-card .message-container.you{
+    margin-left:auto;
+}
+
+#panel-classrooms .classroom-card .messages-container .message{
+    margin: 2px 4px;
+    font-size: medium;
+}
+#panel-classrooms .classroom-card .messages-container .nickname{
+    margin: 2px 4px;
+    text-decoration: underline;
+    font-size: small;
+}
+
+#panel-classrooms .classroom-card .send-msg-section{
+    display: grid;
+    position: sticky;
+    bottom: 4px;
+}
+
+#panel-classrooms .name {
+    font-size: 2rem;
+}
+
+#panel-classrooms .description {
+    font-size: 1rem;
+    text-overflow: ellipsis;
+    color: var(--theme-font-color);
+}
+
+#panel-classrooms details * {
+    font-size: 1rem;
+}
+
+#panel-classrooms button {
+    display: block;
+    background-color: var(--theme-button-color);
+}

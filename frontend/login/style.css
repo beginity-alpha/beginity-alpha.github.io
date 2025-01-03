@@ -1,0 +1,7 @@
+section#login-section{
+    margin: 10px;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    border: var(--theme-bg-secondary);
+}

@@ -1,0 +1,129 @@
+<section class="events">
+	<!-- Create-Event -->
+	<details id='createEventsDialog'>
+		<summary>Create event</summary>
+		<fieldset>
+			<legend>Create-Event</legend>
+			<form id="createEvent">
+				<!-- Mandatory Field -->
+				<label>
+					Mandatory (<input type="checkbox" name="mandatory" />) 
+				</label>
+				
+				<!-- image -->
+				<div>
+					<label for="img"
+						>Image</label
+					>
+					<input type="file" accept="image/*" id="image" name="img"/>
+				</div>
+				<!-- Title -->
+				<div>
+					<label for="title"
+						>Title <span style="color: red">*</span></label
+					>
+					<input type="text" id="title" name="title" required />
+				</div>
+				<!-- Description -->
+				<fieldset>
+					<legend>Description</legend>
+					<!-- detail -->
+					<div tool-tip="Brief details of the event in a praragraph">
+						<label for="detail"
+							>Details
+							<span style="color: red">*</span></label
+						>
+						<textarea
+							id="detail"
+							name="detail"
+							placeholder="Brief details about the event"
+							required
+						></textarea>
+					</div>
+					<!-- Objectives -->
+					<div>
+						<label for="objectives" 
+							>Objectives
+							<span style="color: red">*</span></label
+						>
+						<textarea
+							id="objectives"
+							name="objectives"
+							required
+						></textarea>
+					</div>
+					
+					<!-- Learning Outcomes -->
+					<div>
+						<label for="learning_outcomes"
+							>Learning Outcomes
+							<span style="color: red">*</span></label
+						>
+						<textarea
+							id="learning_outcomes"
+							name="learning_outcomes"
+							required
+						></textarea>
+					</div>
+				</fieldset>
+				<!-- Start Time -->
+				<div>
+					<label for="start_time"
+						>Start Time <span style="color: red">*</span></label
+					>
+					<input
+						type="datetime-local"
+						id="start_time"
+						name="start_time"
+						required
+					/>
+				</div>
+				<!-- End Time -->
+				<div>
+					<label for="end_time"
+						>End Time <span style="color: red">*</span></label
+					>
+					<input
+						type="datetime-local"
+						id="end_time"
+						name="end_time"
+						required
+					/>
+				</div>
+				<!-- Location -->
+				<fieldset>
+					<legend>Location</legend>
+					<!-- Address -->
+					<div>
+						<label for="address"
+							>Address
+							<span style="color: red">*</span></label
+						>
+						<input
+							type="text"
+							id="address"
+							name="address"
+							required
+						/>
+					</div>
+					<!-- Latitude -->
+					<div>
+						<label for="lat">Latitude</label>
+						<input type="number" id="lat" name="lat" />
+					</div>
+					<!-- Longitude -->
+					<div>
+						<label for="long">Longitude</label>
+						<input type="number" id="long" name="long" />
+					</div>
+				</fieldset>
+				<!-- Submit Button -->
+				<button type="submit">Submit Event</button>
+			</form>
+		</fieldset>
+		<main id="home-main">
+	</details>
+		<!-- <section id="welcome">Hello <span class="user-name"></span> !</section> -->
+		<section id="panel-events"></section>
+	</main>
+</section>

@@ -1,0 +1,150 @@
+<section id="login-section">
+    <details>
+        <summary>Register</summary>
+        <!-- Register User-->
+        <fieldset>
+            <legend>register user</legend>
+            <form id="registerUser">
+                <select name="role" id="register-role">
+                    <option id="Student" value="Student" selected>Student</option>
+                    <option id="Teacher" value="Teacher">Teacher</option>
+                    <option id="Speaker" value="Speaker">Speaker</option></select
+                ><br />
+                <input
+                    type="text"
+                    name="name"
+                    id="register-name"
+                    placeholder="name"
+                /><br />
+                <input
+                    type="text"
+                    name="nickname"
+                    id="register-nickname"
+                    placeholder="nickname"
+                /><br />
+                <textarea
+                    type="text"
+                    name="about"
+                    id="register-about"
+                    placeholder="about"
+                    hidden
+                ></textarea><br />
+                <input
+                    type="url"
+                    name="links"
+                    id="register-links"
+                    placeholder="links"
+                    hidden
+                /><br />
+                <input
+                    type="text"
+                    name="organization"
+                    id="register-organization"
+                    placeholder="organization"
+                    hidden
+                /><br />
+                <input
+                    type="email"
+                    name="email"
+                    id="register-email"
+                    placeholder="email"
+                /><button id="register-verify-email-button" type="button" disabled>
+                    Get OTP</button
+                ><br />
+                <br />
+                <input
+                    type="text"
+                    name="stream"
+                    id="register-stream"
+                    placeholder="stream"
+                /><br />
+                <label for="register-gender"
+                    >Gender:<select name="gender" id="register-gender" required>
+                        <option value="" selected disabled hidden>
+                            --Select--
+                        </option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select></label
+                ><br />
+                <input
+                    id="register-title"
+                    type="text"
+                    name="title"
+                    placeholder="title"
+                    hidden
+                /><br />
+                <input
+                    id="register-branch"
+                    type="text"
+                    name="branch"
+                    placeholder="branch"
+                /><br />
+                <input
+                    id="register-year"
+                    type="number"
+                    name="year"
+                    min="2022"
+                    max="2050"
+                    default="2024"
+                    placeholder="year"
+                /><br />
+                <input
+                    id="register-enrollment_id"
+                    type="text"
+                    name="enrollment_id"
+                    placeholder="enrollment-id"
+                /><br />
+                <input
+                    type="password"
+                    name="password"
+                    id="register-password"
+                    placeholder="password"
+                /><br />
+                <!-- <input type="password" name="password-repeat" id="register-password-repeat"> -->
+                <input
+                    type="number"
+                    placeholder="OTP"
+                    id="register-otp"
+                    name="otp"
+                    minlength="6"
+                    maxlength="6"
+                /><br />
+                <button id="register-submit-button" type="submit" disabled>
+                    Submit
+                </button>
+            </form>
+        </fieldset>
+    </details>
+   
+    <details>
+        <summary>Log in</summary>
+        <!-- login user  -->
+        <fieldset>
+            <legend>login user</legend>
+            <form id="logInUser">
+                <input
+                    type="text"
+                    name="nickname"
+                    id="login-name"
+                    placeholder="nickname"
+                /><br />
+                <input
+                    type="email"
+                    name="email"
+                    id="login-email"
+                    placeholder="email"
+                /><br />
+                <input
+                    type="password"
+                    name="password"
+                    id="login-password"
+                    placeholder="password"
+                />
+                <br />
+                <button type="submit">Log in</button>
+            </form>
+        </fieldset>
+    </details>
+</section>

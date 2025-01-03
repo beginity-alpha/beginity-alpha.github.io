@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Beginity</title>
+		<script
+			type="module"
+			src="https://cdn.socket.io/4.8.0/socket.io.esm.min.js"
+		></script>
+		<script src="./utils.js" type="module"></script>
+		<script src="./custom-element.js" type="module"></script>
+		<script type="module" src="./main.js"></script>
+		<script type="module" src="./login/main.js"></script>
+		<script src="./app-SDK.js" type="module"></script>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="./details-dialog.css">
+		<link rel="stylesheet" href="./z-indexes.css">
+	</head>
+	<body class="hide-scrollbar">
+		<section hidden>Token : <span id="token"></span></section>
+		<div id="notification" class=""><span class="message"></span></div>
+		<!-- NAVIGATION BAR -->
+		<div is="custom-element" 
+		 html-url="/navigation/index.html" 
+		 css-url="/navigation/style.css" 
+		 module-url="/navigation/main.js"
+		></div>
+		<div id="display-route-content">
+			<!--DEFAULT: LOG_IN_PAGE -->
+			<div is="custom-element" 
+		 	html-url="/login/index.html" 
+		 	css-url="/login/style.css" 
+		 	module-url="/login/main.js"
+		></div>
+		</div>
+	</body>
+</html>
