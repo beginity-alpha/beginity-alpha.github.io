@@ -8,6 +8,7 @@ export function initUI(document = window.document) {
 	const $id=ids()
 	if(!$id.registerRole) return
  	$id.registerRole.onclick = handleInputFieldsForRoles
+	$id.registerRole.onchange = handleInputFieldsForRoles
 	$id.registerUser.onsubmit = registerUser.handler(data=>{
 		display.message(data.message)
 		redirectTo('/login')
