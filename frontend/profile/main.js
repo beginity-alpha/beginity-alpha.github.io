@@ -8,7 +8,7 @@ export const initUI = async (document=window.document)=>{
         console.log(user)
         $id.profilePage.innerHTML +=`
             <h4 class='role ${user.role}'>${user.role}</h4>
-            <img src="${hostSocket}/${user.profile}" alt='profile-image'></img>
+            <img src="${hostSocket}${user.profile}" alt='profile-image'></img>
             <h2  class='nickname'>${user.nickname}</h2>
             <h4 class='name'>${user.name}</h4>
             ${((user)=>{
