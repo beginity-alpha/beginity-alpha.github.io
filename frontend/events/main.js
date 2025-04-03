@@ -56,11 +56,11 @@ async function loadEvents() {
 						<ul>
 						
 						<heading><h3>Objectives</h3></heading>
-						${event.description.objectives.map(o => `<li>${o}</li>`).join()}
+						${event.description.objectives.map(o => `<li>${o}</li>`).join("")}
 						</ul>
 						<ul>
 						<heading><h3>Learning Outcomes</h3></heading>
-						${event.description.learning_outcomes.map(l => `<li>${l}</li>`).join()}
+						${event.description.learning_outcomes.map(l => `<li>${l}</li>`).join("")}
 						</ul>
 						<button type='button' class="enroll">Enroll</button>
 						</span>
