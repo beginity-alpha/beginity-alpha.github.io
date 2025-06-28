@@ -28,6 +28,10 @@
     box-shadow: 1px 1px 2.5px white;
 }
 
+#panel-events .event-card img{
+    width: 100%;
+}
+
 #panel-events .title {
     font-size: 2rem;
 }
@@ -40,6 +44,7 @@
 #panel-events details summary {
     font-size: 0.51rem;
 }
+
 
 #panel-events details summary {
     display: block;

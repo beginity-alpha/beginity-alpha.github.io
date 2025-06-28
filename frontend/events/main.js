@@ -54,7 +54,7 @@ async function loadEvents() {
 						<fieldset class="hide-scrollbar">
 						<span class="description" >
 						<ul>
-						
+						${event?.image ? `<img src="${hostSocket}${event.image}"></img>` : ''}
 						<heading><h3>Objectives</h3></heading>
 						${event.description.objectives.map(o => `<li>${o}</li>`).join("")}
 						</ul>

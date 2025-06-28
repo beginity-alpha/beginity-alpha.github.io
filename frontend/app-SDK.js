@@ -50,11 +50,25 @@ logInUser.handler=(successCallback, errorCallback)=>{
 */
 export async function createEvent(e, successCallback=(data)=>{console.log(data)}, errorCallback=(error)=>console.error(error)) {
 	e.preventDefault(); // Prevent the default form submission
+	const formData = new FormData(e.target, e.submitter);
+	const file = formData.get('image');
+	let imageUrl = null;
+	if(file){
+		const fileFormDataObject = new FormData()
+		fileFormDataObject.set('file', file)
+		let data, error;
+		await uploadFile(fileFormDataObject, 
+			(result_data)=>{console.debug(result_data); data = result_data}, 
+			(upload_error)=>{console.debug(upload_error); error = upload_error}
+		)
+		if(error || !data?.url) return errorCallback(error)
+		imageUrl = data.url;
+	}
 
 	// Create a JSON object based on the schema
-	const formData = new FormData(e.target, e.submitter);
 	const eventJson = {
 		mandatory: formData.get("mandatory") === "on",
+		image : imageUrl || undefined,
 		title: formData.get("title"),
 		description: {
 			detail: formData.get('detail'),
@@ -140,9 +154,15 @@ export async function getClassrooms(e) {
 /***
  * 
 */
-export async function uploadFile(event, successCallback=(data)=>{console.log(data)}, errorCallback=(error)=>console.error(error)) {
-	event.preventDefault();
-	const formData = new FormData(event.target, event.submitter);
+export async function uploadFile(eventOrFormData, successCallback=(data)=>{console.log(data)}, errorCallback=(error)=>console.error(error)) {
+	let formData;
+	if(eventOrFormData instanceof SubmitEvent){
+		eventOrFormData.preventDefault();
+		formData = new FormData(eventOrFormData.target, eventOrFormData.submitter);
+	} else if(eventOrFormData instanceof FormData){
+		formData = eventOrFormData;
+	}
+	
 	try {
 		const token = getItemWithExpiry("token");
 
@@ -303,7 +323,6 @@ export class initSocket {
 	static instance
 	constructor({ newMessageCallback, connectionCallback, successCallback, errorCallback, attendanceStartedCallback, punchInCallback, punchOutCallback, }) {
 		if (initSocket.instance) return initSocket.instance;
-		console.log('once created will not again')
 		const socket = io(hostSocket, {
 			auth: {
 				token: getItemWithExpiry('token')
@@ -377,15 +396,20 @@ export const fetchUserDetail = async () => {
 		return false
 	}
 }
-export async function getAllAttendances({event_id, classroom_id, user_id}, successCallback, errorCallback){
+export async function getAllAttendances({event_id, classroom_id, user_id}, successCallback=(data)=>{console.log(data)}, errorCallback=(error)=>{console.error(error)}){
 	try {
-		const data = await makeSecureRequest(`${hostSocket}/api/attendances?user_id="674b3c5e7fffda283acb6bbf"`,'GET',{})
+		const query = new URLSearchParams({
+			...(user_id && {user_id}),
+			...(classroom_id && {classroom_id}),
+			...(event_id && {event_id}),
+		}).toString()
+		const data = await makeSecureRequest(`${hostSocket}/api/attendances${query ? `?${query}` : ""}`,'GET',{})
 
 		successCallback(data)
-		console.log(data)
+		return data
 	} catch (error) {
 		errorCallback(error)
-		console.log(error)
+		return null;
 	}
 }
-getAllAttendances({}, (data)=>console.log(data.message), (data)=>console.error(data.message));
+// getAllAttendances({}, (data)=>console.log(data.message), (data)=>console.error(data.message));

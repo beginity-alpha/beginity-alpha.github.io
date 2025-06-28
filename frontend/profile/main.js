@@ -1,6 +1,6 @@
 import { fetchUserDetail, hostSocket } from "./../app-SDK.js"
 import {ids} from './../utils.js'
-export const initUI = async (document=window.document)=>{
+export const initUI = async ()=>{
     console.log('// profile page loaded')
     try {
         const $id = ids()
@@ -8,7 +8,9 @@ export const initUI = async (document=window.document)=>{
         console.log(user)
         $id.profilePage.innerHTML +=`
             <h4 class='role ${user.role}'>${user.role}</h4>
-            <img src="${hostSocket}${user.profile}" alt='profile-image'></img>
+            ${user.profile 
+                ?`<img src="${hostSocket}${user.profile}" alt='profile-image'></img>`
+                : '<span>No Profile Image Set</span>'}
             <h2  class='nickname'>${user.nickname}</h2>
             <h4 class='name'>${user.name}</h4>
             ${((user)=>{
