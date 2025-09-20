@@ -1,5 +1,5 @@
 import { io } from "https://cdn.socket.io/4.8.0/socket.io.esm.min.js"
-export const hostSocket = `https://beginity.ddns.net`;
+export const hostSocket = `https://beginity-test.ddns.net`;
 /***
  * 
 */
@@ -413,3 +413,4 @@ export async function getAllAttendances({event_id, classroom_id, user_id}, succe
 	}
 }
 // getAllAttendances({}, (data)=>console.log(data.message), (data)=>console.error(data.message));
+
