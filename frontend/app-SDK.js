@@ -53,7 +53,7 @@ export async function createEvent(e, successCallback=(data)=>{console.log(data)}
 	const formData = new FormData(e.target, e.submitter);
 	const file = formData.get('image');
 	let imageUrl = null;
-	if(file){
+	if(file && file instanceof File && file?.size > 0 && file?.name){
 		const fileFormDataObject = new FormData()
 		fileFormDataObject.set('file', file)
 		let data, error;
@@ -413,4 +413,5 @@ export async function getAllAttendances({event_id, classroom_id, user_id}, succe
 	}
 }
 // getAllAttendances({}, (data)=>console.log(data.message), (data)=>console.error(data.message));
+
 
